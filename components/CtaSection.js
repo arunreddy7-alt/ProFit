@@ -31,7 +31,7 @@ function CtaSection() {
           stay motivated with expert guidance every step of the way!
         </p>
         <Link
-          href="#contact"
+          href="/contact"
           className="px-10 py-4 text-xl text-white rounded-3xl border border-white hover:bg-white hover:text-sky-900 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
           aria-label="Contact us for personalized fitness plan"
         >

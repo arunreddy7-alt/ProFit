@@ -27,7 +27,7 @@ export default function Register() {
       setError('');
       setLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
-      router.push('/dashboard'); // Redirect to dashboard after successful registration
+      router.push('/'); 
     } catch (error) {
       setError(error.message);
     } finally {
@@ -41,7 +41,7 @@ export default function Register() {
       setLoading(true);
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      router.push('/dashboard');
+      router.push('/');
     } catch (error) {
       setError(error.message);
     } finally {

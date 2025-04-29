@@ -23,7 +23,7 @@ function GoalsSection() {
           </p>
           <p className="mb-8 text-2xl text-black">1000+ Users</p>
           <a
-            href="#contact"
+            href="/contact"
             className="inline-block px-10 py-4 text-xl text-sky-900 rounded-3xl border border-sky-900 hover:bg-sky-900 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-sky-900 focus:ring-offset-2"
             aria-label="Contact us for more information"
           >
