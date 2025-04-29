@@ -342,7 +342,7 @@ export default function BeginnerFullBody() {
               <li>Start with lighter weights and focus on proper form</li>
               <li>Rest 60-90 seconds between sets</li>
               <li>Stay hydrated throughout your workout</li>
-              <li>If you're new to exercise, consider working with a personal trainer for your first few sessions</li>
+              <li>If you&apos;re new to exercise, consider working with a personal trainer for your first few sessions</li>
               <li>Listen to your body and modify exercises as needed</li>
               <li>Aim to progressively increase weight or reps as you get stronger</li>
               <li>Allow 48 hours of recovery between full-body workouts</li>
