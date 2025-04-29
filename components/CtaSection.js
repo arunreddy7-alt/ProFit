@@ -25,9 +25,9 @@ function CtaSection() {
           Strong mind. Strong body. Stronger you.
         </h2>
         <p className="mb-16 text-sm text-center text-white max-w-[565px]">
-          We'll work with you to create a personalized fitness plan that fits
-          your goals and lifestyle. We'll also help you track your workouts,
-          plan your meals, and monitor your progress. And best of all, you'll
+          We&apos;ll work with you to create a personalized fitness plan that fits
+          your goals and lifestyle. We&apos;ll also help you track your workouts,
+          plan your meals, and monitor your progress. And best of all, you&apos;ll
           stay motivated with expert guidance every step of the way!
         </p>
         <Link
