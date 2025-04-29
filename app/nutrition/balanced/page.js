@@ -364,7 +364,7 @@ export default function Balanced() {
               <li>Stay hydrated throughout the day</li>
               <li>Practice mindful eating habits</li>
               <li>Plan meals ahead of time</li>
-              <li>Listen to your body's hunger cues</li>
+              <li>Listen to your body&apos;s hunger cues</li>
               <li>Include protein, fiber, and healthy fats in each meal</li>
               <li>Enjoy treats in moderation</li>
             </ul>
