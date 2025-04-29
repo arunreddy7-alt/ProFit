@@ -17,7 +17,8 @@ export default function FitnessChat() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/fitness-chat', {
+      // Use environment variable for API URL
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/fitness-chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage }),
@@ -26,7 +27,7 @@ export default function FitnessChat() {
       const data = await response.json();
       
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to get response from AI');
+        throw new Error(`Failed to get response from AI: ${data.error || response.statusText}`);
       }
 
       setChat(prev => [...prev, { role: 'assistant', content: data.message }]);

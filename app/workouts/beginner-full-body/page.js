@@ -37,7 +37,7 @@ export default function BeginnerFullBody() {
       description: "A compound exercise that targets your quadriceps, hamstrings, and glutes. Stand with feet shoulder-width apart, lower your body as if sitting in a chair, then return to standing position.",
       sets: 3,
       reps: "12-15",
-      link: "youtube.com",
+      link: "https://www.youtube.com/watch?v=aclHkVaku9U",
       image: "https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?q=80",
       muscles: ["Quadriceps", "Hamstrings", "Glutes", "Core"],
       animation: [
@@ -54,6 +54,7 @@ export default function BeginnerFullBody() {
       description: "An upper body exercise that works your chest, shoulders, and triceps. Start in a plank position with hands slightly wider than shoulders, lower your body until chest nearly touches the floor, then push back up.",
       sets: 3,
       reps: "8-12",
+      link: "https://www.youtube.com/watch?v=IODxDxX7oi4",
       image: "https://images.unsplash.com/photo-1616803689943-5601631c7fec?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       muscles: ["Chest", "Shoulders", "Triceps", "Core"],
       animation: [
@@ -70,6 +71,7 @@ export default function BeginnerFullBody() {
       description: "A back exercise that targets your lats and rhomboids. Bend at the waist with one hand on a bench, pull a dumbbell up toward your hip with the other hand, then lower it back down.",
       sets: 3,
       reps: "10-12 each side",
+      link: "https://youtu.be/BVSTYt02SuY?si=cWgkSk7L67JYP-4h",
       image: "https://images.unsplash.com/photo-1659350776600-704fbc39036a?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       muscles: ["Lats", "Rhomboids", "Biceps", "Rear Deltoids"],
       animation: [
@@ -86,6 +88,7 @@ export default function BeginnerFullBody() {
       description: "A lower body exercise that works your quadriceps, hamstrings, and glutes. Step forward with one leg, lower your body until both knees are bent at 90 degrees, then push back to the starting position.",
       sets: 3,
       reps: "10-12 each leg",
+      link: "https://www.youtube.com/watch?v=QOVaHwm-Q6U",
       image: "https://images.unsplash.com/photo-1652363723009-3f2f4d85428e?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       muscles: ["Quadriceps", "Hamstrings", "Glutes", "Core"],
       animation: [
@@ -102,6 +105,7 @@ export default function BeginnerFullBody() {
       description: "A core exercise that engages your entire midsection. Hold a push-up position with your weight on your forearms, keeping your body in a straight line from head to heels.",
       sets: 3,
       reps: "30-60 seconds",
+      link: "https://www.youtube.com/watch?v=pSHjTRCQxIw",
       image: "https://images.unsplash.com/photo-1566241142559-40e1dab266c6?q=80",
       muscles: ["Core", "Shoulders", "Back", "Glutes"],
       animation: [
@@ -118,6 +122,7 @@ export default function BeginnerFullBody() {
       description: "An upper body exercise that targets your shoulders and triceps. Sit or stand with dumbbells at shoulder height, press them overhead, then lower them back down.",
       sets: 3,
       reps: "10-12",
+      link: "https://www.youtube.com/watch?v=qEwKCR5JCog",
       image: "https://images.unsplash.com/photo-1715136155096-152c39758a43?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       muscles: ["Shoulders", "Triceps", "Upper Back"],
       animation: [
@@ -259,12 +264,25 @@ export default function BeginnerFullBody() {
                       </div>
                     </div>
                     
-                    <button
-                      onClick={() => toggleExercise(exercise.id)}
-                      className="mt-2 bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg transition-colors"
-                    >
-                      {activeExercise === exercise.id ? "Hide Animation" : "Show Animation"}
-                    </button>
+                    <div className="flex gap-4">
+                      <button
+                        onClick={() => toggleExercise(exercise.id)}
+                        className="mt-2 bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg transition-colors"
+                      >
+                        {activeExercise === exercise.id ? "Hide Animation" : "Show Animation"}
+                      </button>
+                      <a
+                        href={exercise.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+                      >
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                        Watch Tutorial
+                      </a>
+                    </div>
                   </div>
                 </div>
                 
