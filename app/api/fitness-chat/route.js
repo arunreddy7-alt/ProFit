@@ -1,65 +1,47 @@
+// /pages/api/fitness-chat.js
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
+export default async function handler(req, res) {
+  // Only handle POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+  const { message } = req.body;
 
-const SYSTEM_PROMPT = `You are ProFit AI, a knowledgeable fitness coach. Your expertise includes:
-- Workout routines and exercise techniques
-- Nutrition and diet planning
-- Weight loss and muscle gain strategies
-- General fitness and wellness advice
-
-Provide concise, practical answers. If asked about medical conditions, remind users to consult healthcare professionals.`;
-
-export async function POST(request) {
-  if (!process.env.GOOGLE_API_KEY) {
-    console.error('GOOGLE_API_KEY is not set');
-    return Response.json(
-      { error: 'API key configuration error' },
-      { status: 500 }
-    );
+  // Validate the input
+  if (!message || typeof message !== 'string') {
+    return res.status(400).json({ error: 'Invalid input message' });
   }
 
   try {
-    const { message } = await request.json();
-    
-    if (!message) {
-      return Response.json(
-        { error: 'Message is required' },
-        { status: 400 }
-      );
-    }
-
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    
-    const chat = model.startChat({
-      history: [
-        {
-          role: "user",
-          parts: [{ text: SYSTEM_PROMPT }],
-        },
-        {
-          role: "model",
-          parts: [{ text: "I understand. I'll act as ProFit AI, your fitness coach." }],
-        }
-      ],
+    // Make a request to your Gemini AI or any fitness API
+    const response = await fetch('YOUR_GEMINI_API_URL', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.GEMINI_API_KEY}`, // Make sure to use your correct API key
+      },
+      body: JSON.stringify({
+        prompt: `You are a fitness coach. Answer the following question: ${message}`,
+      }),
     });
 
-    const result = await chat.sendMessage([{ text: message }]);
-    const response = await result.response;
-    const text = response.text();
-
-    if (!text) {
-      throw new Error('Empty response from AI');
+    // Check if the response was successful
+    if (!response.ok) {
+      throw new Error(`Failed to fetch response from Gemini: ${response.statusText}`);
     }
 
-    return Response.json({ message: text });
+    const data = await response.json();
+
+    // Check if response data contains the expected message
+    if (!data || !data.message) {
+      return res.status(500).json({ error: 'Invalid response from AI' });
+    }
+
+    // Send the AI response back to the frontend
+    res.status(200).json({ message: data.message });
   } catch (error) {
-    console.error('Gemini API error:', error);
-    return Response.json(
-      { error: error.message || 'Failed to get response from AI' },
-      { status: 500 }
-    );
+    console.error('Error during API call:', error);
+    res.status(500).json({ error: 'Server error, please try again later.' });
   }
 }
-

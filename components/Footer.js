@@ -92,7 +92,7 @@ function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/aarunreddy/"
                   aria-label="Visit our LinkedIn page"
                   className="hover:opacity-80 transition-opacity"
                 >
