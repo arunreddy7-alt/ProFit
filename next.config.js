@@ -10,6 +10,11 @@ const nextConfig = {
   },
   // Add this for Netlify compatibility
   output: 'standalone',
+  // Disable static generation for pages that use Firebase
+  experimental: {
+    // This will make pages that use Firebase be rendered at runtime instead of build time
+    appDir: true,
+  }
 }
 
 module.exports = nextConfig

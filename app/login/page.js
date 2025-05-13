@@ -16,6 +16,11 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    if (!auth) {
+      setError('Authentication service is not available');
+      return;
+    }
+    
     try {
       setError('');
       setLoading(true);
@@ -29,6 +34,11 @@ export default function Login() {
   };
 
   const handleGoogleSignIn = async () => {
+    if (!auth) {
+      setError('Authentication service is not available');
+      return;
+    }
+    
     try {
       setError('');
       setLoading(true);
