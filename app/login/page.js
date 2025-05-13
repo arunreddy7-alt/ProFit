@@ -11,7 +11,19 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [firebaseReady, setFirebaseReady] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    // Check if Firebase auth is available
+    if (typeof window !== 'undefined') {
+      setFirebaseReady(!!auth);
+      if (!auth) {
+        console.error("Firebase auth is not initialized");
+        setError("Authentication service is not available. Please try again later.");
+      }
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +39,7 @@ export default function Login() {
       await signInWithEmailAndPassword(auth, email, password);
       router.push('/'); // Redirect to home page after successful login
     } catch (error) {
+      console.error("Login error:", error);
       setError('Failed to sign in. Please check your credentials.');
     } finally {
       setLoading(false);
@@ -46,6 +59,7 @@ export default function Login() {
       await signInWithPopup(auth, provider);
       router.push('/');
     } catch (error) {
+      console.error("Google sign-in error:", error);
       setError(error.message);
     } finally {
       setLoading(false);

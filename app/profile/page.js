@@ -2,22 +2,33 @@
 
 import { useState, useEffect } from 'react';
 import { auth } from '../../firebase/config';
-import { signOut } from 'firebase/auth';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 export default function Profile() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    if (!auth) {
+      setError("Authentication service is not available");
+      setLoading(false);
+      return;
+    }
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
         router.push('/login');
       }
+      setLoading(false);
+    }, (error) => {
+      console.error("Auth state error:", error);
+      setError("Authentication error: " + error.message);
       setLoading(false);
     });
 
@@ -25,11 +36,17 @@ export default function Profile() {
   }, [router]);
 
   const handleSignOut = async () => {
+    if (!auth) {
+      setError("Authentication service is not available");
+      return;
+    }
+    
     try {
       await signOut(auth);
       router.push('/');
     } catch (error) {
       console.error('Error signing out:', error);
+      setError("Error signing out: " + error.message);
     }
   };
 
@@ -37,6 +54,22 @@ export default function Profile() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-900">
         <div className="text-2xl text-white animate-pulse">Loading your profile...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-900">
+        <div className="max-w-md w-full bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-8 border border-white/20">
+          <div className="text-xl text-red-400 mb-4">{error}</div>
+          <button
+            onClick={() => router.push('/login')}
+            className="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors"
+          >
+            Go to Login
+          </button>
+        </div>
       </div>
     );
   }

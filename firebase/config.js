@@ -12,8 +12,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase only if it hasn't been initialized already and we're in a browser environment
-let app;
-let auth;
+let app = null;
+let auth = null;
 
 // Check if we're in a browser environment and if all required Firebase config values are present
 if (typeof window !== 'undefined' && 
@@ -27,8 +27,13 @@ if (typeof window !== 'undefined' &&
     } else {
       app = getApps()[0]; // Use the existing app
     }
-    auth = getAuth(app);
-    console.log("Firebase initialized successfully");
+    
+    if (app) {
+      auth = getAuth(app);
+      console.log("Firebase initialized successfully");
+    } else {
+      console.error("Firebase app initialization failed");
+    }
   } catch (error) {
     console.error("Firebase initialization error:", error.message);
   }
