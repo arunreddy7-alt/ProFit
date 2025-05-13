@@ -6,7 +6,7 @@ function HeroSection() {
     <div className="relative h-screen w-full">
       <div className="relative w-full h-full overflow-hidden">
         <Image
-          src="/images/hero-background.jpg" 
+          src="https://img.goodfon.com/wallpaper/nbig/1/db/muscles-strength-back-pose.webp"
           alt="Fitness tracking background"
           fill
           priority

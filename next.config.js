@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     domains: ['cdn.builder.io', 'images.unsplash.com', 'your-image-domain.com', 'prod.spline.design', 'encrypted-tbn0.gstatic.com'],
-    unoptimized: process.env.NODE_ENV === 'production', // For Netlify static exports
+    unoptimized: true, // This is important for static exports
   },
   env: {
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
