@@ -12,25 +12,19 @@ import Footer from "./Footer";
 
 function FitnessTracker() {
   return (
-    <>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-      <div className="w-full bg-white min-h-screen">
-        <HeroSection />
-        <main>
-          <Navbar />
-          <GoalsSection />
-          <WorkoutsSection />
-          <NutritionSection />
-          <VirtualCoachSection />
-          <TestimonialsSection />
-          <CtaSection />
-        </main>
-        <Footer />
-      </div>
-    </>
+    <div className="w-full bg-white min-h-screen">
+      <HeroSection />
+      <main>
+        <Navbar />
+        <GoalsSection />
+        <WorkoutsSection />
+        <NutritionSection />
+        <VirtualCoachSection />
+        <TestimonialsSection />
+        <CtaSection />
+      </main>
+      <Footer />
+    </div>
   );
 }
 

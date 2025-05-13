@@ -32,7 +32,7 @@ function WorkoutsSection() {
           <h2 className="mb-8 text-5xl font-bold text-black">Workouts</h2>
           <p className="mb-12 text-sm max-w-[400px] text-black">
             Our fitness tracker helps you stay on top of your training with
-            structured and customizable workout plans. Whether you're a beginner or
+            structured and customizable workout plans. Whether you&apos;re a beginner or
             a pro, you can log your exercises, track progress, and stay motivated
             every step of the way.
           </p>

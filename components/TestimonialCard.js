@@ -1,18 +1,21 @@
-"use client";
-import React from "react";
+import Image from 'next/image';
 
 function TestimonialCard({ text, image }) {
   return (
-    <article className="flex-[shrink] w-[326px]">
-      <blockquote className="p-5 mb-4 text-sm bg-blue-50 rounded-xl">
-        {text}
-      </blockquote>
-      <img
-        src={image}
-        alt="Client testimonial"
-        className="w-[85px] h-[85px] rounded-full mx-auto"
-      />
-    </article>
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <p className="text-gray-700 mb-4">{text}</p>
+      <div className="flex items-center">
+        <div className="w-12 h-12 rounded-full overflow-hidden relative">
+          <Image
+            src={image}
+            alt="Testimonial author"
+            fill
+            className="object-cover"
+          />
+        </div>
+        {/* Rest of the component */}
+      </div>
+    </div>
   );
 }
 

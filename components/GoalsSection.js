@@ -11,15 +11,11 @@ function GoalsSection() {
       <div className="flex gap-20 items-center max-md:flex-col">
         <div className="flex-1">
           <h2 className="mb-8 text-5xl font-bold text-black">Crush Your Goals</h2>
-          <p className="mb-12 text-sm text-black">
-            Staying fit and healthy shouldn't be complicated. Our fitness
-            tracker web app is designed to help you take control of your fitness
-            journey with ease. Whether you're aiming to build muscle, lose
-            weight, or improve overall well-being, we provide all the tools you
-            need in one powerful platform. Our fitness tracker web app is your
-            ultimate companion for a healthier, stronger you. Whether you're
-            working out to build muscle, lose weight, or simply stay active, we
-            provide all the essential tools to help you stay on track.
+          <p className="text-lg text-gray-600 mb-12">
+            Whether you&apos;re just starting out or looking to level up,
+            we&apos;ll help you set achievable goals and track your progress.
+            Our AI-powered system adapts as you grow, ensuring you&apos;re
+            always challenged but never overwhelmed.
           </p>
           <p className="mb-8 text-2xl text-black">1000+ Users</p>
           <a

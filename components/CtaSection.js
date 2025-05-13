@@ -21,14 +21,12 @@ function CtaSection() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center items-center px-5 mx-auto max-w-none h-full max-md:max-w-[991px] max-sm:max-w-screen-sm">
-        <h2 className="mb-8 text-5xl font-semibold text-center text-white max-md:text-4xl max-sm:text-3xl">
-          Strong mind. Strong body. Stronger you.
+        <h2 className="text-3xl font-bold mb-4">
+          Let&apos;s Transform Your Fitness Journey
         </h2>
-        <p className="mb-16 text-sm text-center text-white max-w-[565px]">
-          We'll work with you to create a personalized fitness plan that fits
-          your goals and lifestyle. We'll also help you track your workouts,
-          plan your meals, and monitor your progress. And best of all, you'll
-          stay motivated with expert guidance every step of the way!
+        <p className="text-lg mb-8 max-w-2xl mx-auto">
+          Join thousands who&apos;ve already changed their lives with our personalized fitness tracking. 
+          It&apos;s time to achieve the results you&apos;ve always wanted.
         </p>
         <Link
           href="/contact"

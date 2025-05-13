@@ -42,7 +42,7 @@ export default function ForgotPassword() {
               Reset your password
             </h2>
             <p className="text-gray-300 mb-8">
-              Enter your email address and we'll send you instructions to reset your password.
+              Enter your email address and we&apos;ll send you instructions to reset your password.
             </p>
           </div>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>

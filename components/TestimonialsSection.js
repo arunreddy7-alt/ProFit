@@ -1,6 +1,7 @@
 "use client";
 import { urlToUrlWithoutFlightMarker } from "next/dist/client/components/router-reducer/fetch-server-response";
 import React from "react";
+import Image from 'next/image';
 
 function TestimonialsSection() {
   const testimonials = [
@@ -21,7 +22,7 @@ function TestimonialsSection() {
   ];
 
   return (
-    <section className="px-5 py-20">
+    <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl font-bold text-center mb-16 text-black">What Our Users Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -41,6 +42,22 @@ function TestimonialsSection() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="flex items-center justify-center mt-12">
+        <div className="flex items-center">
+          <div className="w-24 h-8 relative">
+            <Image
+              src="https://images.unsplash.com/photo-1484863137850-59afcfe05386?q=80&w=200&auto=format&fit=crop"
+              alt="Trustpilot"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <div className="ml-4">
+            <h3 className="text-2xl font-bold">4.8/5</h3>
+            <p className="text-gray-600">Based on 1,234 reviews</p>
+          </div>
         </div>
       </div>
     </section>
